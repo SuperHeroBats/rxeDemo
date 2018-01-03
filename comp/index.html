@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Bin">
+  <meta name="keywords" content="软小二,ruanxiaoer,社团,软件技术社团,软件开发社团" />
+  <title>软小二</title>
+  
+  
+  <link rel="shortcut icon" href="img/h_logo.ico" />
+  
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/animate.css">
+</head>
+<body>
+<div class="container-fluid main">
+  <div class="row">
+    <div v-for="item in data" class="col-lg-4 item animated" :class="item.classA" :onclick="item.fn">
+      <div class="img"><img class="animated" :class="item.classB" :src="item.img" alt="pic"></div>
+      <div class="content">
+        <p class="animated bounceInUp">{{item.slogan}}</p>
+        <h3 class="animated bounceIn">{{item.title}}</h3>
+        <p class="animated bounceInUp">{{item.desc}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="./js/vue.min.js"></script>
+<script>
+
+
+    var vm = new Vue({
+        data:{
+            data: [
+                {'slogan': '欢迎来到软小二官网','title': '小二首页','desc': '这是一个技术牛x的社团','classA': 'bounceInLeft','classB': 'bounceInLeft','classC': 'bounceInUp','classD': 'bounceIn','classE': 'bounceInUp','img':'./img/logo.png','fn': 'window.open(\'s_index.html\')'},
+
+                {'slogan': '前往小二新公告','title': '小二公告','desc': '这里了解小二最新消息','classA': 'bounceInDown','classB': 'bounceInDown','classC': 'bounceInUp','classD': 'bounceIn','classE': 'bounceInUp','img':'./img/zx.png','fn': ''},
+
+                {'slogan': '前往小二相册','title': '小二相册','desc': '这里存在师兄师姐以及各位小二伙伴们的照片','classA': 'bounceInRight','classB': 'bounceInRight','classC': 'bounceInUp','classD': 'bounceIn','classE': 'bounceInUp','img':'./img/xc.png','fn': 'window.open(\'video.html\')'},
+
+                {'slogan': '前往维修问题提交','title': '小二维修','desc': '这里有专业大神为你排忧解难','classA': 'bounceInLeft','classB': 'bounceInLeft','classC': 'bounceInUp','classD': 'bounceIn','classE': 'bounceInUp','img':'./img/wx.png','fn': 'window.open(\'https://jinshuju.net/f/0hunGK\')'},
+
+                {'slogan': '前往小二论坛','title': '小二论坛','desc': '这是一个集学习和吹水一体的论坛','classA': 'bounceInRight','classB': 'bounceInRight','classC': 'bounceInUp','classD': 'bounceIn','classE': 'bounceInUp','img':'./img/lt.png','fn': ''},
+
+                {'slogan': '前往假的window','title': '小二电脑','desc': '这是一个假的电脑并且带了一堆bug','classA': 'bounceInUp','classB': 'bounceInUp','classC': 'bounceInUp','classD': 'bounceIn','classE': 'bounceInUp','img':'./img/window.png','fn': 'window.open(\'comp.html\')'},
+            ],
+        }
+    }).$mount('.main');
+
+
+  var oItem = document.getElementsByClassName('item');
+  var oMain= document.getElementsByClassName('main');
+  var h = document.body.clientHeight || document.documentElement.clientHeight;
+  var w = document.documentElement.clientWidth || document.body.clientWidth;
+  for(var i = 0; i < oItem.length; i++){
+      oItem[i].style.height = (h/2) + 'px';
+  }
+  if( w < 478){
+      for(var i = 0; i < oItem.length; i++){
+          oItem[i].style.height = h + 'px';
+          oItem[i].style.width = 100 + '%';
+      }
+      oMain[0].style.overflowY = 'auto';
+  }
+</script>
+</html>

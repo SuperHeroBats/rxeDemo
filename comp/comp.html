@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<link rel="shortcut icon" href="img/h_logo.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Bin">
+    <meta name="keywords" content="软小二,ruanxiaoer,社团,软件技术社团,软件开发社团" />
+    <title>小二电脑</title>
+    <link rel="stylesheet" href="css/comp.css">
+</head>
+<body>
+<section class="container">
+    <!--<div class="title">-->
+    <!--<h1>啦啦啦</h1>-->
+    <!--</div>-->
+    <div class="main">
+        <!--图标-->
+        <div v-for="item in icoItem" class="item" :data-index="item.i">
+            <img :src="item.imgSrc" alt="">
+            <span>
+        {{item.text}}
+      </span>
+        </div>
+
+    </div>
+    <!--右击菜单-->
+    <div class="menu">
+        <ul>
+            <li onclick="window.location.href = 'comp.html'">
+                刷新
+            </li>
+            <li class="toggle">
+                切换壁纸
+            </li>
+            <li class="showNotice">
+                公告
+            </li>
+            <li class="exit">
+                退出
+            </li>
+        </ul>
+    </div>
+    <!--开始菜单-->
+    <div class="startMenu">
+        <div class="left">
+            <div class="exit">
+                <span class="icon-exit"></span>
+            </div>
+        </div>
+        <div class="right">
+            该区域尚未有构思
+        </div>
+    </div>
+    <!--公告-->
+    <div class="notice drag" data-s="0">
+        <div class="toolbar">
+            <ul class="operation">
+                <li class="close"><span class="icon-x"></span></li>
+                <li class="small"><span class="icon-uniE900"></span></li>
+            </ul>
+        </div>
+        <h2>社团公告</h2>
+        <ul class="list">
+            <li v-for="item in noticeData">
+                <a :href="item.href">{{item.text}}</a>
+            </li>
+        </ul>
+    </div>
+    <!--电脑-->
+    <div class="comp drag" data-s="1">
+        <div class="toolbar">
+            <ul class="operation">
+                <li class="close compClose"><span class="icon-x"></span></li>
+                <li class="big"><span class="icon-max"></span></li>
+                <li class="small"><span class="icon-uniE900"></span></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="left">
+                <h3 class="cTitle">小二电脑</h3>
+                <div class="item">
+                    <dl>
+                        <dt data-w="1">视频</dt>
+                        <dd data-w="4">mv</dd>
+                        <dd data-w="5">电影</dd>
+                        <dd data-w="6">编程视频</dd>
+                    </dl>
+                </div>
+                <div class="item">
+                    <dl>
+                        <dt data-w="2">照片</dt>
+                        <dd  data-w="7">日常照片</dd>
+                        <!--<dd data-w="8">活动照片</dd>-->
+                    </dl>
+                </div>
+                <div class="item">
+                    <dl>
+                        <dt data-w="3">音乐</dt>
+                    </dl>
+                </div>
+            </div>
+            <div class="cmain">
+                <div class="dbltitle">
+                    该功能尚未实现
+                </div>
+                <div class="list">
+                    <div class="parent dbl" style="display: block;">
+                        <ul>
+                            <li data-pos="1">
+                                <img src="./img/file.png" alt="">
+                                <p>视频</p>
+                            </li>
+                            <li data-pos="2">
+                                <img src="./img/file.png" alt="">
+                                <p>照片</p>
+                            </li>
+                            <li data-pos="3">
+                                <img src="./img/file.png" alt="">
+                                <p>音乐</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="child-one dbl" >
+                        <ul>
+                            <li data-pos="4">
+                                <img src="./img/file.png" alt="">
+                                <p>mv</p>
+                            </li>
+                            <li data-pos="5">
+                                <img src="./img/file.png" alt="">
+                                <p>电影</p>
+                            </li>
+                            <li data-pos="6">
+                                <img src="./img/file.png" alt="">
+                                <p>编程视频</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="child-two dbl" >
+                        <ul>
+                            <li data-pos="7">
+                                <img src="./img/file.png" alt="">
+                                <p>日常照片</p>
+                            </li>
+                            <!--<li data-pos="8">-->
+                                <!--<img src="./img/file.png" alt="">-->
+                                <!--<p>活动照片</p>-->
+                            <!--</li>-->
+                        </ul>
+                    </div>
+                    <div class="child-three dbl">
+                        <ul>
+                            <li v-for="item in musicData" data-pos="3-1" :music-src="item.MusicSrc">
+                                <img :src="item.imgSrc" alt="">
+                                <p>{{item.text}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Child-mv dbl">
+                        <ul>
+                            <li v-for="item in mvData" :video-src="item.videoSrc">
+                                <img :src="item.imgSrc" alt="">
+                                <p>{{item.text}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Child-dy dbl">
+                        <ul>
+                            <li v-for="item in movieData" :video-src="item.videoSrc">
+                                <img :src="item.imgSrc" alt="">
+                                <p>{{item.text}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Child-bc dbl">
+                        <ul>
+                            <li data-pos="8">
+                                <img src="./img/file.png" alt="">
+                                <p>html/css</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Child-img dbl">
+                        <ul>
+                            <li v-for="item in imgData" :img-src="item.imgSrc">
+                                <img :src="item.src" alt="">
+                                <p>{{item.text}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Child-web dbl">
+                        <ul>
+                            <li v-for="item in fbData" :video-src="item.videoSrc">
+                                <img :src="item.imgSrc" alt="">
+                                <p>{{item.text}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--<div class="Child-hd dbl" >-->
+                        <!--<ul>-->
+                            <!--<li data-pos="1-1-1">-->
+                                <!--<img src="./img/file.png" alt="">-->
+                                <!--<p>hdhd</p>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--多媒体-->
+    <div v-for="item in mediaData" class="drag" :class="item.classOne" :data-s="item.s">
+        <div class="toolbar">
+            <ul class="operation">
+                <li class="close"><span class="icon-x"></span></li>
+                <li class="big"><span class="icon-max"></span></li>
+                <li class="small"><span class="icon-uniE900"></span></li>
+            </ul>
+        </div>
+        <div :class="item.classTwo" v-html="item.html">
+        </div>
+    </div>
+    <!--浏览器 + 游戏-->
+    <div v-for="item in iframeData" class="drag frame" :class="item.class" :data-s="item.s">
+        <div class="toolbar" style="cursor: move;">
+            <ul class="operation">
+                <li class="close"><span class="icon-x"></span></li>
+                <li class="big"><span class="icon-max"></span></li>
+                <li class="small"><span class="icon-uniE900"></span></li>
+            </ul>
+        </div>
+        <div class="inputBox">
+            <input type="text" placeholder="这里输入你要进入的网址,按下回车键即可进行访问">
+        </div>
+        <div class="content">
+            <iframe :src="item.iframeSrc">
+            </iframe>
+        </div>
+    </div>
+    <!--状态栏-->
+    <footer>
+        <div class="start">
+            <span class="icon-windows"></span>
+        </div>
+        <div class="statusBar">
+            <ul class="items">
+                <li v-for="item in statusData" :data-i="item.dataI">{{item.text}}</li>
+            </ul>
+        </div>
+        <div class="time"></div>
+        <div class="times">
+            <iframe width="100%" height="100%" src="./rl/index.html"></iframe>
+        </div>
+    </footer>
+</section>
+<script src="./js/jquery.js"></script>
+<script src="./js/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        data: {
+            icoItem: [
+                {i: 0,imgSrc: './img/comp.ico',text: '小二电脑'},
+                {i: 1,imgSrc: './img/google.png',text: '小二浏览器'},
+                {i: 2,imgSrc: './img/google.png',text: '五子棋'},
+                {i: 3,imgSrc: './img/google.png',text: '打砖块'},
+                {i: 4,imgSrc: './img/google.png',text: '植物大战僵尸'},
+                {i: 5,imgSrc: './img/google.png',text: '2048'}
+            ],
+            noticeData: [
+                {href: '#',text: '这是一条社团公告'},
+                {href: '#',text: '这是一条社团公告'},
+                {href: '#',text: '这是一条社团公告'},
+            ],
+            iframeData: [
+                {class: 'browser', s: 5,iframeSrc: ''},
+                {class: 'wzq', s: 6,iframeSrc: './games/wzq/index.html'},
+                {class: 'dzk', s: 7,iframeSrc: './games/dzk/demo.html'},
+                {class: 'zwdzjs', s: 8,iframeSrc: './games/zwdzjs/index.html'},
+                {class: 'two', s: 9,iframeSrc: './games/2048/index.html'},
+            ],
+            mvData: [
+                {videoSrc: './video/周二珂 - 告白气球.mp4',imgSrc: './img/gbqq.png',text: '周二珂-告白气球'},
+                {videoSrc: './video/杨宗纬张碧晨 - 凉凉.mp4',imgSrc: './img/ll.png',text: '杨宗纬张碧晨 - 凉凉'},
+            ],
+            movieData: [
+                {videoSrc: './video/1.mp4',imgSrc: './img/mp41.png',text: '一只幸运的气球'},
+                {videoSrc: './video/2.mp4',imgSrc: './img/mp42.png',text: '外星人与键盘仔'},
+            ],
+            imgData: [
+                {imgSrc: './img/083a53b7.bg.jpg',src: './img/083a53b7.bg.jpg',text: 'window 10'}
+            ],
+            fbData: [
+                {videoSrc: './video/第1章 课程介绍.m4v',imgSrc: './img/html1.png',text: '第1章 课程介绍'},
+                {videoSrc: './video/第2章 html的语法.m4v',imgSrc: './img/html1.png',text: '第2章 html的语法'},
+                {videoSrc: './video/第3章 html的基本结构.m4v',imgSrc: './img/html1.png',text: '第3章 html的基本结构'},
+                {videoSrc: './video/第4章 html的文档设置标记上（格式标记）.m4v',imgSrc: './img/html1.png',text: '第4章 html的文档设置标记上'},
+                {videoSrc: './video/第5章 html的文档设置标记下（文本标记）.m4v',imgSrc: './img/html1.png',text: '第5章 html的文档设置标记下'},
+            ],
+            musicData: [
+                {MusicSrc: './music/田馥甄 - 你就不要想起我.FLAC',imgSrc: './img/njbyxqw.png',text: '田馥甄 - 你就不要想起我'},
+                {MusicSrc: './music/梁汉文 - 七友.MP3',imgSrc: './img/qy.png',text: '梁汉文 - 七友'},
+            ],
+            statusData: [
+                {dataI: 0,text: '社团公告'},
+                {dataI: 1,text: '小二电脑'},
+                {dataI: 2,text: '小二视频'},
+                {dataI: 3,text: '小二音乐'},
+                {dataI: 4,text: '小二图片'},
+                {dataI: 5,text: '小二浏览器'},
+                {dataI: 6,text: '五子棋'},
+                {dataI: 7,text: '打砖块'},
+                {dataI: 8,text: '植物大战僵尸'},
+                {dataI: 9,text: '2048'}
+            ],
+            mediaData: [
+                {classOne: 'media',s: 2, classTwo: 'player',html: '<div class="loader"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div><video  preload="auto" controls></video>'},
+                {classOne: 'music',s: 3, classTwo: 'player',html: '<audio  preload="auto" controls></audio>'},
+                {classOne: 'image',s: 4, classTwo: 'img',html: '<img>'},
+            ]
+        }
+    }).$mount('.container')
+</script>
+<script src="./js/comp.js"></script>
+</body>
+</html>
